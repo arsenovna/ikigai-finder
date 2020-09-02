@@ -1,19 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+
 body {
+  height: 100vh;
+  min-height: 100vh;
   font-family: "Quicksand";
-  background-color: #2A153A;
-}
-
-.lady {
-  width: 700px;
-  height: 654px;
-
-  background: url("./lady.png") no-repeat;
 }
 
 .company {
   width: 10px;
   height: 10px;
   background: url("./company.png") no-repeat;
+}
+
+.smallLogo {
+  width: 75px;
+  height: 75px;
+  background: url("./smallMobLogo.svg") no-repeat;
+}
+
+.fb_button {
+  position:relative;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 40px;
+  border: 1px solid #F4EDE0;  
+  border-radius: 4px;
+  background:linear-gradient(180deg, #5496FA 21.43%, #296DDC 74.11%);
+  color:white;
+}
+
+.logout_button {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 20px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  font-size: 14px;
+  border-width: 0;
+  top: 10%;
+}
+
+ul.progress-bar {
+  height: 150px;
+  list-style: none;
+  margin: 1em;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+ul.progress-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5px;
+  background: #777;
+  width: 2px;
+  height: 100vh;
+}
+ul.progress-bar li {
+  background: #000;
+  border-radius: 100px;
+  width: 12px;
+  height: 12px;
+  z-index: 1;
+  position: relative;
+}
+ul.progress-bar li.stop ~ li {
+  background: #777;
+}
+ul.progress-bar li.stop ~ li::after {
+  height: 0;
+}
+ul.progress-bar li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  background: #000;
+  width: 2px;
+  height: 100vh;
+}
+
+.home-questions {
+  /* height:50%; */
+  /* display: grid; */
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+
+
+@media only screen and (max-width : 399px) {
+  .fb_button{
+    position:relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .smallLogo {
+    width: 120px;
+    height: 110px;
+    background: url("./smallLogo.svg") no-repeat;
+  }
+  .lady {
+    width: 700px;
+    height: 654px;
+    background: url("./lady.png") no-repeat;
+  }
 }
