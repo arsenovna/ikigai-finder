@@ -1,13 +1,12 @@
-import React from 'react';
+import React, {useContext}from 'react';
 import styled from 'styled-components';
 import './App.css';
-import { Icon } from '@iconify/react';
-import letterC from '@iconify/icons-emojione-monotone/letter-c';
+import Context from './Context';
 
 
 function Header() {
 
-
+  const {user} = useContext(Context);
 
   return (
     <div>
@@ -16,8 +15,8 @@ function Header() {
           <LogoImage className = "smallLogo"/>
         </LeftSideInfo>
         <RightSideInfo>
-          <p style = {{color: "black"}}>Akbota Aldungarova</p>
-          <button className = "logout_button">Log out</button>
+          <p style = {{color: "black"}}>{user.name}</p>
+          <button className = "logout_button" disabled>Log out</button>
         </RightSideInfo>
       </Main>
     </div>

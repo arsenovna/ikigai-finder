@@ -2,22 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import './App.css';
 import FacebookLogin from 'react-facebook-login';
-import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import bxlFacebook from '@iconify/icons-bx/bxl-facebook';
-import Footer from './Footer'
-
+import Footer from './Footer';
+import { useHistory } from "react-router-dom";
+import Context from './Context';
 
 function LoginPage({fetchedUser}) {
-  const [user, setUser] = React.useState([])
+  const history = useHistory();
+  const { addUser } = React.useContext(Context);
 
-  const componentClicked = (data) => {
-    console.log('data', data)
+
+  const componentClicked = () => {
+    history.push("/home");
   }
 
   const responseFacebook = (response) => {
-    setUser(response);
-    fetchedUser(user);
+    if (response.name) {
+      componentClicked()
+    }
+    addUser(response)
+    console.log(response)
   }
 
 
@@ -42,19 +47,16 @@ function LoginPage({fetchedUser}) {
                 you could see Ikigai of anyone in the world?
               </p2>
             </Intro>
-            <Link to = {"/home"}>
-              <FacebookLogin
-                appId="617689302471020"
-                fields="name,email,picture"
-                onClick={componentClicked}
-                callback={responseFacebook}
-                cssClass = "fb_button"
-                // icon={<i icon="bxlFacebook" style={{color: '#fefefe'}}/>}
-                textButton="Sign In with Facebook"
-                >
-                  <Icon icon={bxlFacebook} style={{color: '#fefefe'}} />
-              </FacebookLogin>
-            </Link>
+            <FacebookLogin
+              appId="617689302471020"
+              fields="name,email,picture"
+              callback={responseFacebook}
+              cssClass = "fb_button"
+              // icon={<i icon="bxlFacebook" style={{color: '#fefefe'}}/>}
+              textButton="Sign In with Facebook"
+              >
+                <Icon icon={bxlFacebook} style={{color: '#fefefe'}} />
+            </FacebookLogin>
             
           </LogoItem>
 

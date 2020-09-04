@@ -1,13 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import styled from 'styled-components';
 import Header from './Header';
 import {TextField, Chip} from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab';
 import Footer from "./Footer";
+// import Context from './Context';
 
 
 function Homepage() {
+  const [goodItems, setGoodItems] = useState([]);
+  const [loveItems, setLoveItems] = useState([]);
+  const classes = [];
+  // const {user} = useContext(Context);
+
+  const addLoveItems = (event, values)=> {
+    setLoveItems(values)
+    if (loveItems.length > 0 )
+    {
+      classes.push('stop')
+    }
+  }
+  const addGoodItems = (event, values)=> {
+    setGoodItems(values)
+    if (goodItems.length > 0 )
+    {
+      classes.push('stop')
+    }
+  }
+  
+  
 
   return (
     <div style={{backgroundColor: "#F4EDE0"}}>
@@ -16,16 +38,17 @@ function Homepage() {
         <HomeBody>
           <LeftSideContent>
             <Intro>
-              <p>
+              <span>
                 <h2>Let’s start your journey</h2>
                 Tell us some details about you.
-              </p>
+              </span>
             </Intro>
             <QuestionsBox>
               <ProgressBar>
-                <ul class="progress-bar">
-                  <li class= "stop"/>
-                  <li/>
+                {/* {classes}!!!!!!! */}
+                <ul className="progress-bar">
+                  <li className= {classes.join(' ')}/>
+                  <li className= {classes.join(' ')}/>
                 </ul>
               </ProgressBar>
               <QuestionContent>
@@ -34,16 +57,17 @@ function Homepage() {
                     <p>What do you LOVE?</p>
                     <Autocomplete
                       multiple
-                      id="love"
+                      id="loveItems"
                       options={skills.map((option) => option.title)}
                       freeSolo
                       renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
-                          <Chip color="#2A153A" label={option} {...getTagProps({ index })} />
+                          <Chip color="primary" label={option} {...getTagProps({ index })} />
                         ))
                       }
+                      onChange={addLoveItems}
                       renderInput={(params) => (
-                        <TextField {...params}  />
+                        <TextField {...params} />
                       )}
                     />
                   </li>
@@ -51,14 +75,15 @@ function Homepage() {
                     <p>What are you GOOD AT?</p>
                     <Autocomplete
                       multiple
-                      id="good"
+                      id="goodItems"
                       options={skills.map((option) => option.title)}
                       freeSolo
                       renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
-                          <Chip color="#2A153A" label={option} {...getTagProps({ index })} />
+                          <Chip color="primary" label={option} {...getTagProps({ index })} />
                         ))
                       }
+                      onChange={addGoodItems}
                       renderInput={(params) => (
                         <TextField {...params}  />
                       )}
@@ -70,7 +95,7 @@ function Homepage() {
           </LeftSideContent>
           <RightSideContent>
             <p>
-            "Some quotes about honesty and aims"
+            "Become the change"
             </p>
           </RightSideContent>
         </HomeBody>
@@ -133,6 +158,6 @@ const skills = [
   { title: 'Design' },
   { title: 'Web Development' },
   { title: 'Data Science' },
-  { title: 'iOS Developer' },
-  { title: 'Teacher' },
+  { title: 'iOS Development' },
+  { title: 'Teaching' },
 ];
