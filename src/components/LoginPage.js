@@ -1,25 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
-import './App.css';
+import '../App.css';
 import FacebookLogin from 'react-facebook-login';
-import { Icon } from '@iconify/react';
+import Icon from '@iconify/react';
 import bxlFacebook from '@iconify/icons-bx/bxl-facebook';
+import {useHistory} from "react-router-dom";
 import Footer from './Footer';
-import { useHistory } from "react-router-dom";
 import Context from './Context';
+import firebase from "../firebase/config";
 
 function LoginPage({fetchedUser}) {
   const history = useHistory();
   const { addUser } = React.useContext(Context);
+  var db = firebase.firestore();
 
 
   const componentClicked = () => {
     history.push("/home");
   }
 
+  const saveUserToDB = (user) => {
+    db
+      .collection("users")
+      .doc(user.id)
+      .set({
+        uid: user.id,
+        name: user,
+        timeStamp: new Date()
+      })
+  }
+
   const responseFacebook = (response) => {
     if (response.name) {
       componentClicked()
+      saveUserToDB(response)
     }
     addUser(response)
     console.log(response)

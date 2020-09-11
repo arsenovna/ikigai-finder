@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Homepage from './Homepage';
-import LoginPage from './LoginPage';
-import Context from "./Context";
+import Homepage from './components/Homepage';
+import LoginPage from './components/LoginPage';
+import Context from "./components/Context";
 
 
 function App() {

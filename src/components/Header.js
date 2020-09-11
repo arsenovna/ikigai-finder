@@ -1,12 +1,19 @@
 import React, {useContext}from 'react';
 import styled from 'styled-components';
-import './App.css';
+import '../App.css';
 import Context from './Context';
+import { useHistory } from "react-router-dom";
 
 
 function Header() {
-
+  const history = useHistory();
   const {user} = useContext(Context);
+
+  function fbLogout() {
+    window.FB.logout()
+    history.push("/")
+    console.log(user)
+  }
 
   return (
     <div>
@@ -16,7 +23,7 @@ function Header() {
         </LeftSideInfo>
         <RightSideInfo>
           <p style = {{color: "black"}}>{user.name}</p>
-          <button className = "logout_button" disabled>Log out</button>
+          <button className = "logout_button" onClick={fbLogout}>Log out</button>
         </RightSideInfo>
       </Main>
     </div>

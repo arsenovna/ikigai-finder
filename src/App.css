@@ -3,7 +3,7 @@
 
 body {
   height: 100vh;
-  min-height: 100vh;
+  max-height: 100vh;
   font-family: "Quicksand";
 }
 
@@ -48,7 +48,7 @@ body {
 ul.progress-bar {
   height: 150px;
   list-style: none;
-  margin: 1em;
+  margin: 2em;
   padding: 0;
   position: relative;
   display: flex;

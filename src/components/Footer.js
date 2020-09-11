@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import './App.css';
+import '../App.css';
 import { Icon } from '@iconify/react';
 import letterC from '@iconify/icons-emojione-monotone/letter-c';
 
