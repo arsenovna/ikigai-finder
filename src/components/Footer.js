@@ -10,7 +10,6 @@ function Footer() {
 
 
   return (
-    <div>
       <Main>
         <LeftSideInfo>
           <FooterItem>
@@ -36,7 +35,6 @@ function Footer() {
           </RightFooterItem>
         </RightSideInfo>
       </Main>
-    </div>
     
   );
 }
@@ -65,7 +63,6 @@ const Main = styled.div`
   height:100px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  color: black;
 `;
 const FooterItem = styled.div`
   display: flex;

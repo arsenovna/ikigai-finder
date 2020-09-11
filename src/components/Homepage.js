@@ -130,7 +130,9 @@ function Homepage() {
             </p>
           </RightSideContent>
         </HomeBody>
-        <Footer/>
+        <FooterDiv>
+          <Footer/>
+        </FooterDiv>
       </Main>
     </div>
   );
@@ -170,6 +172,12 @@ const QuestionContent = styled.div`
   display: flex;
   flex-direction: column;
   list-
+`
+
+const FooterDiv = styled.div` 
+  position: relative;
+  height: 60px;
+  color: black;
 `
 
 const SaveButtonBox = styled.div`

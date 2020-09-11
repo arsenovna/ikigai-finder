@@ -142,7 +142,8 @@ const AppName = styled.div`
 `
 const FooterDiv = styled.div` 
   position: relative;
-  height: 60px
+  height: 60px;
+  color: white;
 `
 
 const LogoImage = styled.div`
