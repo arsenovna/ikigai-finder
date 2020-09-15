@@ -41,46 +41,44 @@ function LoginPage({fetchedUser}) {
 
 
   return (
-    <div style={{backgroundColor: "#2A153A"}} >
-      <Main>
-        <MainBody>
-          <LogoItem>
-            <AppName> 
-              <p1>
-                IKIGAI
-              </p1>
-              <p2>
-                FINDER
-              </p2>
-            </AppName>
-            <Intro>
-              <p1>
-                What if...
-              </p1>
-              <p2>
-                you could see Ikigai of anyone in the world?
-              </p2>
-            </Intro>
-            <FacebookLogin
-              appId="617689302471020"
-              fields="name,email,picture"
-              callback={responseFacebook}
-              cssClass = "fb_button"
-              // icon={<i icon="bxlFacebook" style={{color: '#fefefe'}}/>}
-              textButton="Sign In with Facebook"
-              >
-                <Icon icon={bxlFacebook} style={{color: '#fefefe'}} />
-            </FacebookLogin>
-            
-          </LogoItem>
+    <Main>
+      <MainBody>
+        <LogoItem>
+          <AppName> 
+            <p1>
+              IKIGAI
+            </p1>
+            <p2>
+              FINDER
+            </p2>
+          </AppName>
+          <Intro>
+            <p1>
+              What if...
+            </p1>
+            <p2>
+              you could see Ikigai of anyone in the world?
+            </p2>
+          </Intro>
+          <FacebookLogin
+            appId="617689302471020"
+            fields="name,email,picture"
+            callback={responseFacebook}
+            cssClass = "fb_button"
+            // icon={<i icon="bxlFacebook" style={{color: '#fefefe'}}/>}
+            textButton="Sign In with Facebook"
+            >
+              <Icon icon={bxlFacebook} style={{color: '#fefefe'}} />
+          </FacebookLogin>
+          
+        </LogoItem>
 
-          <LogoImage className="lady"/>
-        </MainBody>
-        <FooterDiv>
-          <Footer/>
-        </FooterDiv>
-      </Main>
-    </div>
+        <LogoImage className="lady"/>
+      </MainBody>
+      <FooterDiv>
+        <Footer/>
+      </FooterDiv>
+    </Main>
     
   );
 }
@@ -97,18 +95,13 @@ const LogoItem = styled.div`
 `
 
 const Main = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-rows: 0.8fr 0.2fr;
-
+  background: #2A153A;
 `
 
 const MainBody = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  min-height: 700px;
-
 `
 
 const Intro = styled.div`

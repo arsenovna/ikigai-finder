@@ -59,6 +59,8 @@ const RightFooterItem = styled.div`
 `
 
 const Main = styled.div`
+  position: fixed;
+  bottom: 0;
   position: relative;
   height: 80px;
   display: grid;

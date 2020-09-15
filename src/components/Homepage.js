@@ -63,11 +63,8 @@ function Homepage() {
   }
 
   return (
-    <div style={{backgroundColor: "#F4EDE0"}}>
       <Main>
-
         <Header/>
-
         <HomeBody>
             <svg className="homepage-frame-orange"/>
             <svg className="homepage-frame-purple"/>
@@ -142,16 +139,14 @@ function Homepage() {
         <FooterDiv>
           <Footer/>
         </FooterDiv>
-        
       </Main>
-    </div>
   );
 }
 
 export default Homepage;
 
 const Main = styled.div`
-  position: relative;
+  background: #F4EDE0; 
 `
 
 const HomeBody = styled.div`
@@ -171,7 +166,6 @@ const LeftSideContent = styled.div`
 const QuestionsBox = styled.div`
   display: grid;
   grid-template-columns: 0.3fr 1.7fr;
-  min-height: 500px;
 `
 
 const ProgressBar = styled.div`
@@ -182,7 +176,7 @@ const QuestionContent = styled.div`
   flex-direction: column;
 `
 
-const FooterDiv = styled.div` 
+const FooterDiv = styled.div`
   position: relative;
   width: 95%;
   left: 2%;
