@@ -56,14 +56,15 @@ const RightFooterItem = styled.div`
   position: relative;
   float: right;
   top: 50%;
-  right: 10%;
 `
 
 const Main = styled.div`
-  height:100px;
+  position: relative;
+  height: 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-`;
+`
+
 const FooterItem = styled.div`
   display: flex;
   justify-content: center;

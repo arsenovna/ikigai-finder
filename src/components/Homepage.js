@@ -7,6 +7,7 @@ import {Autocomplete} from '@material-ui/lab';
 import Footer from "./Footer";
 import firebase from "../firebase/config";
 import Context from './Context';
+import UsersList from './UsersList';
 
 
 function Homepage() {
@@ -16,6 +17,7 @@ function Homepage() {
   const {user} = useContext(Context);
   var db = firebase.firestore();
 
+  
   const addLoveItems = (event, values)=> {
     setLoveItems(values)
     if (loveItems.length > 0 )
@@ -63,8 +65,12 @@ function Homepage() {
   return (
     <div style={{backgroundColor: "#F4EDE0"}}>
       <Main>
+
         <Header/>
+
         <HomeBody>
+            <svg className="homepage-frame-orange"/>
+            <svg className="homepage-frame-purple"/>
           <LeftSideContent>
             <Intro>
               <span>
@@ -118,21 +124,25 @@ function Homepage() {
                       />
                     </li>
                   </ul>
+                  <SaveButtonBox>
+                    <button className = "logout_button" onClick={save}>Save</button>
+                  </SaveButtonBox>
                 </QuestionContent>
               </QuestionsBox>
-              <SaveButtonBox>
-                <button className = "logout_button" onClick={save}>Save</button>
-              </SaveButtonBox>
           </LeftSideContent>
+
           <RightSideContent>
             <p>
             "Become the change"
             </p>
+            <UsersList/>
           </RightSideContent>
+
         </HomeBody>
         <FooterDiv>
           <Footer/>
         </FooterDiv>
+        
       </Main>
     </div>
   );
@@ -141,28 +151,27 @@ function Homepage() {
 export default Homepage;
 
 const Main = styled.div`
-  height: 100vh;
+  position: relative;
 `
 
 const HomeBody = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  position: relative;
-  width: 90%;
-  top: 5%;
-  right: 5%;
-  left:5%;
+  height: 625px;
 `
 
 const Intro = styled.div``
 
 const LeftSideContent = styled.div`
-
+  position: relative;
+  left: 5%;
+  top: 5%;
 `
 
 const QuestionsBox = styled.div`
   display: grid;
   grid-template-columns: 0.3fr 1.7fr;
+  min-height: 500px;
 `
 
 const ProgressBar = styled.div`
@@ -171,12 +180,13 @@ const ProgressBar = styled.div`
 const QuestionContent = styled.div`
   display: flex;
   flex-direction: column;
-  list-
 `
 
 const FooterDiv = styled.div` 
   position: relative;
-  height: 60px;
+  width: 95%;
+  left: 2%;
+  border-top: 0.5px solid black;
   color: black;
 `
 
@@ -190,14 +200,24 @@ const SaveButtonBox = styled.div`
 `
 
 const RightSideContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  right: 5%;
+  top: 5%;
+  
   p {
-    position: relative;
     justify-content: center;
     align-items: center;
     font-style: normal;
-    font-weight: 300;
-    font-size: 64px;
-    margin: 20% 5% 20% 20%;
+    font-weight: 200;
+    font-size: 48px;
+    height: fit-content;
+    margin: 15% 5% 10% 20%;
+  }
+  
+  ul {
+    list-style: none;
   }
 `
 

@@ -19,7 +19,6 @@ function App() {
           </Switch>
         </Router>
       </Context.Provider>
-      
     </div>
   );
 }

@@ -2,9 +2,8 @@
 
 
 body {
-  height: 100vh;
-  max-height: 100vh;
   font-family: "Quicksand";
+  max-height: 700px;
 }
 
 .company {
@@ -17,6 +16,24 @@ body {
   width: 75px;
   height: 75px;
   background: url("./smallMobLogo.svg") no-repeat;
+}
+
+.homepage-frame-orange {
+  width: 600px;
+  height: 600px;
+  background: url("./orange.svg") no-repeat;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+}
+.homepage-frame-purple {
+  width: 500px;
+  height: 500px;
+  background: url("./purple.svg") no-repeat;
+  transform: rotate(-10deg);
+  position: absolute;
+  top: 40%;
+  left: 50%;
 }
 
 .fb_button {
@@ -37,11 +54,11 @@ body {
   align-items: center;
   width: 100px;
   height: 20px;
+  border: 1px solid #F4EDE0;
   border-radius: 10px;
   background: black;
   color: white;
   font-size: 14px;
-  border-width: 0;
   top: 10%;
 }
 
@@ -63,7 +80,7 @@ ul.progress-bar::after {
   left: 5px;
   background: #777;
   width: 2px;
-  height: 100vh;
+  height: 100%;
 }
 ul.progress-bar li {
   background: #000;
@@ -86,12 +103,10 @@ ul.progress-bar li::after {
   left: 5px;
   background: #000;
   width: 2px;
-  height: 100vh;
+  height: 100%;
 }
 
 .home-questions {
-  /* height:50%; */
-  /* display: grid; */
   justify-content: space-around;
   align-items: center;
   list-style: none;

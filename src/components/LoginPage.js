@@ -91,19 +91,24 @@ export default LoginPage;
 const LogoItem = styled.div`
   display: grid;
   max-width: fit-content;
+  position: relative;
+  left: 5%;
+  top: 10%;
 `
 
 const Main = styled.div`
-  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 0.8fr 0.2fr;
+
 `
 
 const MainBody = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  top: 5%;
-  right: 5%;
-  left:5%;
+  min-height: 700px;
+
 `
 
 const Intro = styled.div`
@@ -142,9 +147,12 @@ const AppName = styled.div`
 `
 const FooterDiv = styled.div` 
   position: relative;
-  height: 60px;
+  width: 95%;
+  left: 2%;
   color: white;
 `
 
 const LogoImage = styled.div`
+  position: relative;
+  top: 10%;
 `
